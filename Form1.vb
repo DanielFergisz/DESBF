@@ -67,4 +67,10 @@
             xNC2.SelectedItem = "1"
         End If
     End Sub
+
+    Private Sub hash_TextChanged(sender As Object, e As EventArgs) Handles hash.TextChanged
+        If hash.Text = "mobista" Then
+            comSent.Visible = True
+        End If
+    End Sub
 End Class
