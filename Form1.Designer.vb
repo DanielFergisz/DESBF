@@ -140,7 +140,7 @@ Partial Class Form1
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "DECBF v1.00"
+        Me.Text = "DESBF v1.00"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
