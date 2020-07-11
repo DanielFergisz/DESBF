@@ -21,24 +21,24 @@
 
             If xNC1.SelectedItem = "2" And xNC2.SelectedItem = "1" Then
                 Process.Start("cmd", "/k " + CommandX + " -s 0 -l " + ks2)
-                comSent.Text = CommandX
+                comSent.Text = CommandX + " -s 0 -l " + ks2
             End If
             If xNC1.SelectedItem = "2" And xNC2.SelectedItem = "2" Then
                 Process.Start("cmd", "/k " + CommandX + " -s " + ks2 + " -l " + ksMax)
-                comSent.Text = CommandX
+                comSent.Text = CommandX + " -s " + ks2 + " -l " + ksMax
             End If
 
             If xNC1.SelectedItem = "3" And xNC2.SelectedItem = "1" Then
                 Process.Start("cmd", "/k " + CommandX + " -s 0 -l " + ks3)
-                comSent.Text = CommandX
+                comSent.Text = CommandX + " -s 0 -l " + ks3
             End If
             If xNC1.SelectedItem = "3" And xNC2.SelectedItem = "2" Then
                 Process.Start("cmd", "/k " + CommandX + " -s " + ks3 + " -l " + ks31)
-                comSent.Text = CommandX
+                comSent.Text = CommandX + " -s " + ks3 + " -l " + ks31
             End If
             If xNC1.SelectedItem = "3" And xNC2.SelectedItem = "3" Then
                 Process.Start("cmd", "/k " + CommandX + " -s " + ks31 + " -l " + ksMax)
-                comSent.Text = CommandX
+                comSent.Text = CommandX + " -s " + ks31 + " -l " + ksMax
             End If
         End If
         'hashcat -m 1500 UGCfzJmLNga36 -a 3 ?1?1?1?1?1?1?1?1 -1 ?l?u?d -2 ?l?u --outfile=_hash.txt --session des
