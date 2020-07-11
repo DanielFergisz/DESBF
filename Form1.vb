@@ -45,6 +45,7 @@ Public Class Form1
         If M1.Text.Length = 0 Or M2.Text.Length = 0 Or M3.Text.Length = 0 Or M4.Text.Length = 0 Or M5.Text.Length = 0 Or M6.Text.Length = 0 Or M7.Text.Length = 0 Then
         Else
             fileCodCheck.Enabled = True
+            manualCheck.BackColor = Color.Yellow
         End If
         'hashcat -m 1500 UGCfzJmLNga36 -a 3 ?1?1?1?1?1?1?1?1 -1 ?l?u?d -2 ?l?u --outfile=_hash.txt --session des
     End Sub
@@ -179,17 +180,18 @@ Public Class Form1
 
                 message.Subject = M6.Text 'temat wiadomości
 
-
+                ' smtp.Port = 465
                 message.BodyEncoding = System.Text.Encoding.UTF8
                 message.Body = M7.Text 'tekst wiadomości
 
                 smtp.Credentials = New NetworkCredential(M4.Text, M5.Text) 'login i hasło
 
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network
+                ' smtp.EnableSsl = True
 
                 smtp.Send(message)
 
-                Log.AppendText(Environment.NewLine)
+                ' Log.AppendText(Environment.NewLine)
                 Log.AppendText(Environment.NewLine + "Mail has been sent")
 
             Catch ex As SmtpException
