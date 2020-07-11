@@ -22,41 +22,55 @@ Partial Class Form1
     'Nie należy modyfikować za pomocą edytora kodu.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.StartBF = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.hash = New System.Windows.Forms.TextBox()
         Me.HC = New System.Windows.Forms.ComboBox()
         Me.xNC1 = New System.Windows.Forms.ComboBox()
         Me.xNC2 = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.hash = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.cOne = New System.Windows.Forms.TextBox()
         Me.cTwo = New System.Windows.Forms.TextBox()
         Me.comSent = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Button1
+        'StartBF
         '
-        Me.Button1.Location = New System.Drawing.Point(478, 27)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 26)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Start BF"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.StartBF.Location = New System.Drawing.Point(478, 27)
+        Me.StartBF.Name = "StartBF"
+        Me.StartBF.Size = New System.Drawing.Size(75, 26)
+        Me.StartBF.TabIndex = 0
+        Me.StartBF.Text = "Start BF"
+        Me.StartBF.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.hash)
-        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.StartBF)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 59)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(576, 75)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(18, 30)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(50, 17)
+        Me.Label3.TabIndex = 2
+        Me.Label3.Text = "HASH:"
+        '
+        'hash
+        '
+        Me.hash.Location = New System.Drawing.Point(74, 27)
+        Me.hash.Name = "hash"
+        Me.hash.Size = New System.Drawing.Size(374, 22)
+        Me.hash.TabIndex = 1
         '
         'HC
         '
@@ -72,7 +86,7 @@ Partial Class Form1
         '
         Me.xNC1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.xNC1.FormattingEnabled = True
-        Me.xNC1.Items.AddRange(New Object() {"1", "2"})
+        Me.xNC1.Items.AddRange(New Object() {"1", "2", "3"})
         Me.xNC1.Location = New System.Drawing.Point(316, 12)
         Me.xNC1.Name = "xNC1"
         Me.xNC1.Size = New System.Drawing.Size(45, 24)
@@ -105,38 +119,6 @@ Partial Class Form1
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "Select PC:"
         '
-        'hash
-        '
-        Me.hash.Location = New System.Drawing.Point(74, 27)
-        Me.hash.Name = "hash"
-        Me.hash.Size = New System.Drawing.Size(374, 22)
-        Me.hash.TabIndex = 1
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(18, 30)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(50, 17)
-        Me.Label3.TabIndex = 2
-        Me.Label3.Text = "HASH:"
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(531, 12)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(57, 24)
-        Me.Button2.TabIndex = 7
-        Me.Button2.Text = "save"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'cOne
-        '
-        Me.cOne.Location = New System.Drawing.Point(28, 341)
-        Me.cOne.Name = "cOne"
-        Me.cOne.Size = New System.Drawing.Size(142, 22)
-        Me.cOne.TabIndex = 8
-        '
         'cTwo
         '
         Me.cTwo.Location = New System.Drawing.Point(208, 342)
@@ -158,8 +140,6 @@ Partial Class Form1
         Me.ClientSize = New System.Drawing.Size(603, 398)
         Me.Controls.Add(Me.comSent)
         Me.Controls.Add(Me.cTwo)
-        Me.Controls.Add(Me.cOne)
-        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.xNC2)
@@ -176,7 +156,7 @@ Partial Class Form1
 
     End Sub
 
-    Friend WithEvents Button1 As Button
+    Friend WithEvents StartBF As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents HC As ComboBox
     Friend WithEvents xNC1 As ComboBox
@@ -185,8 +165,6 @@ Partial Class Form1
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents hash As TextBox
-    Friend WithEvents Button2 As Button
-    Friend WithEvents cOne As TextBox
     Friend WithEvents cTwo As TextBox
     Friend WithEvents comSent As TextBox
 End Class

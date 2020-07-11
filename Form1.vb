@@ -1,9 +1,15 @@
 ﻿Public Class Form1
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub StartBF_Click(sender As Object, e As EventArgs) Handles StartBF.Click
         Dim CommandX As String
         CommandX = HC.Text + " -m 1500 " + hash.Text + " -a 3 ?1?1?1?1?1?1?1?1 -1 ?l?u?d -2 ?l?u --outfile=_hash.txt --session des"
         Dim ksMax As String
         ksMax = "916132832"
+        Dim ks2 As String
+        ks2 = "458066416"
+        Dim ks3 As String
+        ks3 = "305377611"
+        Dim ks31 As String
+        ks31 = "610755222"
 
         If hash.Text.Length = 0 Then
             MsgBox("Please enter Hash !!")
@@ -12,11 +18,27 @@
                 Process.Start("cmd", "/k " + CommandX)
                 comSent.Text = CommandX
             End If
+
             If xNC1.SelectedItem = "2" And xNC2.SelectedItem = "1" Then
-                Process.Start("cmd", "/k " + CommandX + " -s 0 -l " + cOne.Text)
+                Process.Start("cmd", "/k " + CommandX + " -s 0 -l " + ks2)
+                comSent.Text = CommandX
             End If
             If xNC1.SelectedItem = "2" And xNC2.SelectedItem = "2" Then
-                Process.Start("cmd", "/k " + CommandX + " -s " + cOne.Text + " -l " + ksMax)
+                Process.Start("cmd", "/k " + CommandX + " -s " + ks2 + " -l " + ksMax)
+                comSent.Text = CommandX
+            End If
+
+            If xNC1.SelectedItem = "3" And xNC2.SelectedItem = "1" Then
+                Process.Start("cmd", "/k " + CommandX + " -s 0 -l " + ks3)
+                comSent.Text = CommandX
+            End If
+            If xNC1.SelectedItem = "3" And xNC2.SelectedItem = "2" Then
+                Process.Start("cmd", "/k " + CommandX + " -s " + ks3 + " -l " + ks31)
+                comSent.Text = CommandX
+            End If
+            If xNC1.SelectedItem = "3" And xNC2.SelectedItem = "3" Then
+                Process.Start("cmd", "/k " + CommandX + " -s " + ks31 + " -l " + ksMax)
+                comSent.Text = CommandX
             End If
         End If
         'hashcat -m 1500 UGCfzJmLNga36 -a 3 ?1?1?1?1?1?1?1?1 -1 ?l?u?d -2 ?l?u --outfile=_hash.txt --session des
@@ -37,11 +59,12 @@
             xNC2.Items.Add("2")
             xNC2.SelectedItem = "1"
         End If
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        If xNC1.SelectedItem = "2" Then
-            cOne.Text = 916132832 / 2
+        If xNC1.SelectedItem = "3" Then
+            xNC2.Items.Clear()
+            xNC2.Items.Add("1")
+            xNC2.Items.Add("2")
+            xNC2.Items.Add("3")
+            xNC2.SelectedItem = "1"
         End If
     End Sub
 End Class
