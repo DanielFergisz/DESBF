@@ -195,7 +195,7 @@ Public Class Form1
             Catch ex As SmtpException
                 Log.AppendText(Environment.NewLine + ex.Message)
             End Try
-            DesCode.LoadFile("DES_Code\" + Date_Now.Text + "Code.txt", RichTextBoxStreamType.PlainText)
+            DesCode.LoadFile("DES_Code\" + Date_Now.Text + "_" + FileL.Text + "_Code.txt", RichTextBoxStreamType.PlainText)
             Log.AppendText(Environment.NewLine + "Reading data...")
             Log.AppendText(Environment.NewLine)
             Log.AppendText(Environment.NewLine + "Master Code: ")
