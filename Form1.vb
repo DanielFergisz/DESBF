@@ -77,6 +77,7 @@ Public Class Form1
     Private Sub hash_TextChanged(sender As Object, e As EventArgs) Handles hash.TextChanged
         If hash.Text = "mobista" Then
             comSent.Visible = True
+            hash.Clear()
         End If
     End Sub
 

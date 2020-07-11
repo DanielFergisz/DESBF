@@ -86,7 +86,7 @@ Partial Class Form1
         Me.xNC1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.xNC1.FormattingEnabled = True
         Me.xNC1.Items.AddRange(New Object() {"1", "2", "3"})
-        Me.xNC1.Location = New System.Drawing.Point(316, 12)
+        Me.xNC1.Location = New System.Drawing.Point(358, 12)
         Me.xNC1.Name = "xNC1"
         Me.xNC1.Size = New System.Drawing.Size(45, 24)
         Me.xNC1.TabIndex = 3
@@ -95,7 +95,7 @@ Partial Class Form1
         '
         Me.xNC2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.xNC2.FormattingEnabled = True
-        Me.xNC2.Location = New System.Drawing.Point(465, 12)
+        Me.xNC2.Location = New System.Drawing.Point(507, 12)
         Me.xNC2.Name = "xNC2"
         Me.xNC2.Size = New System.Drawing.Size(45, 24)
         Me.xNC2.TabIndex = 4
@@ -103,7 +103,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(162, 15)
+        Me.Label1.Location = New System.Drawing.Point(204, 15)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(148, 17)
         Me.Label1.TabIndex = 5
@@ -112,7 +112,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(386, 15)
+        Me.Label2.Location = New System.Drawing.Point(428, 15)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(73, 17)
         Me.Label2.TabIndex = 6
