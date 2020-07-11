@@ -1,7 +1,9 @@
-﻿Public Class Form1
+﻿Imports System.IO
+
+Public Class Form1
     Private Sub StartBF_Click(sender As Object, e As EventArgs) Handles StartBF.Click
         Dim CommandX As String
-        CommandX = HC.Text + " -m 1500 " + hash.Text + " -a 3 ?1?1?1?1?1?1?1?1 -1 ?l?u?d -2 ?l?u --outfile=_hash.txt --session des"
+        CommandX = HC.Text + " -m 1500 " + hash.Text + " -a 3 ?1?1?1?1?1?1?1?1 -1 ?l?u?d -2 ?l?u --outfile=DES_Code\" + Date.Today + "_hash.txt --session des"
         Dim ksMax As String
         ksMax = "916132832"
         Dim ks2 As String
@@ -47,6 +49,10 @@
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         HC.SelectedItem = "hashcat"
         xNC1.SelectedItem = "1"
+        If Directory.Exists("DES_Code") Then
+        Else
+            Directory.CreateDirectory("DES_Code")
+        End If
     End Sub
 
     Private Sub NC1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles xNC1.SelectedIndexChanged
