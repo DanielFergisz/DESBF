@@ -79,4 +79,8 @@ Public Class Form1
             comSent.Visible = True
         End If
     End Sub
+
+    Private Sub HC_SelectedIndexChanged(sender As Object, e As EventArgs) Handles HC.SelectedIndexChanged
+
+    End Sub
 End Class
