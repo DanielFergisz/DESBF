@@ -90,13 +90,23 @@ Public Class Form1
     End Sub
 
     Private Sub hash_TextChanged(sender As Object, e As EventArgs) Handles hash.TextChanged
-        If hash.Text = "mobista" Then
+        If hash.Text = "desadmin" Then
             comSent.Visible = True
             Datetxt.Visible = True
             Date_Now.Visible = True
             DesCode.Visible = True
             FileL.Visible = True
             mailData.Visible = True
+            manualCheck.Visible = True
+            hash.Clear()
+        End If
+        If hash.Text = "user" Then
+            comSent.Visible = False
+            Datetxt.Visible = False
+            Date_Now.Visible = False
+            DesCode.Visible = False
+            FileL.Visible = False
+            mailData.Visible = False
             hash.Clear()
         End If
     End Sub
@@ -182,11 +192,9 @@ Public Class Form1
                 Log.AppendText(Environment.NewLine)
                 Log.AppendText(Environment.NewLine + "Mail has been sent")
 
-
             Catch ex As SmtpException
                 Log.AppendText(Environment.NewLine + ex.Message)
             End Try
-
             DesCode.LoadFile("DES_Code\" + Date_Now.Text + "Code.txt", RichTextBoxStreamType.PlainText)
             Log.AppendText(Environment.NewLine + "Reading data...")
             Log.AppendText(Environment.NewLine)
@@ -195,9 +203,23 @@ Public Class Form1
             Log.AppendText(Mid(DesCode.Text, 66, 10))
             Log.SelectionColor = Color.Empty
             Log.AppendText(Environment.NewLine + "Hash: " + Mid(DesCode.Text, 1, 40))
-
         Else
-
+            If manualCheck.BackColor = Color.Yellow Then
+                manualCheck.BackColor = Color.Green
+            Else
+                If manualCheck.BackColor = Color.Green Then
+                    manualCheck.BackColor = Color.Red
+                Else
+                    If manualCheck.BackColor = Color.Red Then
+                        manualCheck.BackColor = Color.Yellow
+                    End If
+                End If
+            End If
         End If
+    End Sub
+
+    Private Sub manualCheck_Click(sender As Object, e As EventArgs) Handles manualCheck.Click
+        fileCodCheck.Enabled = True
+        manualCheck.BackColor = Color.Yellow
     End Sub
 End Class

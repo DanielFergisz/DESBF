@@ -63,6 +63,7 @@ Partial Class Form1
         Me.DesCode = New System.Windows.Forms.RichTextBox()
         Me.FileL = New System.Windows.Forms.TextBox()
         Me.Datetxt = New System.Windows.Forms.Label()
+        Me.manualCheck = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -391,14 +392,15 @@ Partial Class Form1
         '
         'Log
         '
-        Me.Log.Location = New System.Drawing.Point(22, 100)
+        Me.Log.Location = New System.Drawing.Point(27, 86)
         Me.Log.Name = "Log"
-        Me.Log.Size = New System.Drawing.Size(441, 125)
+        Me.Log.Size = New System.Drawing.Size(441, 139)
         Me.Log.TabIndex = 5
         Me.Log.Text = ""
         '
         'fileCodCheck
         '
+        Me.fileCodCheck.Interval = 15000
         '
         'Date_Now
         '
@@ -435,13 +437,24 @@ Partial Class Form1
         Me.Datetxt.Text = "Date:"
         Me.Datetxt.Visible = False
         '
+        'manualCheck
+        '
+        Me.manualCheck.Location = New System.Drawing.Point(568, 12)
+        Me.manualCheck.Name = "manualCheck"
+        Me.manualCheck.Size = New System.Drawing.Size(40, 23)
+        Me.manualCheck.TabIndex = 17
+        Me.manualCheck.Text = "M"
+        Me.manualCheck.UseVisualStyleBackColor = True
+        Me.manualCheck.Visible = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(620, 632)
+        Me.ClientSize = New System.Drawing.Size(620, 526)
+        Me.Controls.Add(Me.manualCheck)
         Me.Controls.Add(Me.Datetxt)
         Me.Controls.Add(Me.FileL)
         Me.Controls.Add(Me.DesCode)
@@ -508,4 +521,5 @@ Partial Class Form1
     Friend WithEvents DesCode As RichTextBox
     Friend WithEvents FileL As TextBox
     Friend WithEvents Datetxt As Label
+    Friend WithEvents manualCheck As Button
 End Class
