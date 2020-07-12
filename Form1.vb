@@ -6,7 +6,7 @@ Public Class Form1
     Private Sub StartBF_Click(sender As Object, e As EventArgs) Handles StartBF.Click
         Date_Now.Text = Date.Today
         Dim CommandX As String
-        CommandX = HC.Text + " -m 1500 " + hash.Text + " -a 3 ?1?1?1?1?1?1?1?1 -1 ?l?u?d -2 ?l?u --outfile=DES_Code\" + Date_Now.Text + "_" + FileL.Text + "_Code.txt - -session des"
+        CommandX = HC.Text + " -m 1500 " + hash.Text + " -a 3 ?1?1?1?1?1?1?1?1 -1 ?l?u?d -2 ?l?u --outfile=DES_Code\" + Date_Now.Text + "_" + FileL.Text + "_Code.txt --session des"
         Dim ksMax As String = "916132832"
         Dim ks2 As String = "458066416"
         Dim ks3 As String = "305377611"
@@ -15,6 +15,8 @@ Public Class Form1
         If hash.Text.Length = 0 Then
             MsgBox("Please enter Hash !!")
         Else
+            Log.Clear()
+            Log.AppendText("Start of calculation..")
             If xNC1.SelectedItem = "1" Then
                 Process.Start("cmd", "/k " + CommandX)
                 comSent.Text = CommandX
@@ -180,31 +182,30 @@ Public Class Form1
 
                 message.Subject = M6.Text 'temat wiadomości
 
-                ' smtp.Port = 465
+
                 message.BodyEncoding = System.Text.Encoding.UTF8
                 message.Body = M7.Text 'tekst wiadomości
 
                 smtp.Credentials = New NetworkCredential(M4.Text, M5.Text) 'login i hasło
 
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network
-                ' smtp.EnableSsl = True
 
                 smtp.Send(message)
 
-                ' Log.AppendText(Environment.NewLine)
-                Log.AppendText(Environment.NewLine + "Mail has been sent")
+                Log.AppendText(Environment.NewLine + "Done. File has been sent.")
+                Log.AppendText(Environment.NewLine)
+
+
 
             Catch ex As SmtpException
                 Log.AppendText(Environment.NewLine + ex.Message)
             End Try
             DesCode.LoadFile("DES_Code\" + Date_Now.Text + "_" + FileL.Text + "_Code.txt", RichTextBoxStreamType.PlainText)
-            Log.AppendText(Environment.NewLine + "Reading data...")
-            Log.AppendText(Environment.NewLine)
-            Log.AppendText(Environment.NewLine + "Master Code: ")
+            Log.AppendText(Environment.NewLine + "DES Code: ")
             Log.SelectionColor = Color.DarkBlue
-            Log.AppendText(Mid(DesCode.Text, 66, 10))
+            Log.AppendText(Mid(DesCode.Text, 15, 8))
             Log.SelectionColor = Color.Empty
-            Log.AppendText(Environment.NewLine + "Hash: " + Mid(DesCode.Text, 1, 40))
+            Log.AppendText(Environment.NewLine + "Hash: " + Mid(DesCode.Text, 1, 13))
         Else
             If manualCheck.BackColor = Color.Yellow Then
                 manualCheck.BackColor = Color.Green

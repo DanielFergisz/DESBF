@@ -36,6 +36,7 @@ Partial Class Form1
         Me.comSent = New System.Windows.Forms.TextBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Log = New System.Windows.Forms.RichTextBox()
         Me.Benchmark = New System.Windows.Forms.Button()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.saveInfo = New System.Windows.Forms.Label()
@@ -57,7 +58,6 @@ Partial Class Form1
         Me.M1 = New System.Windows.Forms.TextBox()
         Me.mailData = New System.Windows.Forms.RichTextBox()
         Me.TimerSaveOK = New System.Windows.Forms.Timer(Me.components)
-        Me.Log = New System.Windows.Forms.RichTextBox()
         Me.fileCodCheck = New System.Windows.Forms.Timer(Me.components)
         Me.Date_Now = New System.Windows.Forms.TextBox()
         Me.DesCode = New System.Windows.Forms.RichTextBox()
@@ -95,17 +95,19 @@ Partial Class Form1
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.Label3.Location = New System.Drawing.Point(18, 30)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(50, 17)
+        Me.Label3.Size = New System.Drawing.Size(54, 17)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "HASH:"
         '
         'hash
         '
-        Me.hash.Location = New System.Drawing.Point(74, 27)
+        Me.hash.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.hash.Location = New System.Drawing.Point(78, 27)
         Me.hash.Name = "hash"
-        Me.hash.Size = New System.Drawing.Size(374, 22)
+        Me.hash.Size = New System.Drawing.Size(384, 23)
         Me.hash.TabIndex = 1
         '
         'Restore
@@ -196,6 +198,15 @@ Partial Class Form1
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "DES"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'Log
+        '
+        Me.Log.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Log.Location = New System.Drawing.Point(27, 86)
+        Me.Log.Name = "Log"
+        Me.Log.Size = New System.Drawing.Size(441, 139)
+        Me.Log.TabIndex = 5
+        Me.Log.Text = ""
         '
         'Benchmark
         '
@@ -389,14 +400,6 @@ Partial Class Form1
         'TimerSaveOK
         '
         Me.TimerSaveOK.Interval = 1000
-        '
-        'Log
-        '
-        Me.Log.Location = New System.Drawing.Point(27, 86)
-        Me.Log.Name = "Log"
-        Me.Log.Size = New System.Drawing.Size(441, 139)
-        Me.Log.TabIndex = 5
-        Me.Log.Text = ""
         '
         'fileCodCheck
         '
