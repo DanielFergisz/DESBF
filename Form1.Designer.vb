@@ -472,7 +472,7 @@ Partial Class Form1
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "DESBF v1.01"
+        Me.Text = "DESBF v1.02"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.TabControl1.ResumeLayout(False)

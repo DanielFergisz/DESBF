@@ -49,7 +49,7 @@ Public Class Form1
             fileCodCheck.Enabled = True
             manualCheck.BackColor = Color.Yellow
         End If
-        'hashcat -m 1500 UGCfzJmLNga36 -a 3 ?1?1?1?1?1?1?1?1 -1 ?l?u?d -2 ?l?u --outfile=_hash.txt --session des
+
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
