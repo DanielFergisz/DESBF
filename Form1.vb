@@ -225,4 +225,8 @@ Public Class Form1
         fileCodCheck.Enabled = True
         manualCheck.BackColor = Color.Yellow
     End Sub
+
+    Private Sub SendManual_Click(sender As Object, e As EventArgs) Handles SendManual.Click
+        Process.Start("cmd", "/k " + Manual.Text)
+    End Sub
 End Class

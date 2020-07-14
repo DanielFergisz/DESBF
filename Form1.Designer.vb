@@ -64,10 +64,16 @@ Partial Class Form1
         Me.FileL = New System.Windows.Forms.TextBox()
         Me.Datetxt = New System.Windows.Forms.Label()
         Me.manualCheck = New System.Windows.Forms.Button()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.Manual = New System.Windows.Forms.TextBox()
+        Me.SendManual = New System.Windows.Forms.Button()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'StartBF
@@ -178,6 +184,7 @@ Partial Class Form1
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Location = New System.Drawing.Point(12, 51)
         Me.TabControl1.Name = "TabControl1"
@@ -204,6 +211,7 @@ Partial Class Form1
         Me.Log.Font = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.Log.Location = New System.Drawing.Point(27, 86)
         Me.Log.Name = "Log"
+        Me.Log.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical
         Me.Log.Size = New System.Drawing.Size(441, 139)
         Me.Log.TabIndex = 5
         Me.Log.Text = ""
@@ -450,6 +458,43 @@ Partial Class Form1
         Me.manualCheck.UseVisualStyleBackColor = True
         Me.manualCheck.Visible = False
         '
+        'TabPage3
+        '
+        Me.TabPage3.Controls.Add(Me.GroupBox2)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Size = New System.Drawing.Size(597, 244)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Manual"
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'Manual
+        '
+        Me.Manual.Location = New System.Drawing.Point(15, 31)
+        Me.Manual.Name = "Manual"
+        Me.Manual.Size = New System.Drawing.Size(423, 22)
+        Me.Manual.TabIndex = 0
+        '
+        'SendManual
+        '
+        Me.SendManual.Location = New System.Drawing.Point(453, 31)
+        Me.SendManual.Name = "SendManual"
+        Me.SendManual.Size = New System.Drawing.Size(75, 23)
+        Me.SendManual.TabIndex = 1
+        Me.SendManual.Text = "Send"
+        Me.SendManual.UseVisualStyleBackColor = True
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Manual)
+        Me.GroupBox2.Controls.Add(Me.SendManual)
+        Me.GroupBox2.Location = New System.Drawing.Point(20, 19)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(553, 77)
+        Me.GroupBox2.TabIndex = 2
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Dos Command"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -472,13 +517,16 @@ Partial Class Form1
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "DESBF v1.02"
+        Me.Text = "DESBF v1.03"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
+        Me.TabPage3.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -525,4 +573,8 @@ Partial Class Form1
     Friend WithEvents FileL As TextBox
     Friend WithEvents Datetxt As Label
     Friend WithEvents manualCheck As Button
+    Friend WithEvents TabPage3 As TabPage
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents Manual As TextBox
+    Friend WithEvents SendManual As Button
 End Class
