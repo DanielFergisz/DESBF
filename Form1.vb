@@ -59,8 +59,8 @@ Public Class Form1
         Else
             Directory.CreateDirectory("DES_Code")
         End If
-        If My.Computer.FileSystem.FileExists("Mail_Data.tds") Then
-            mailData.LoadFile("Mail_Data.tds", RichTextBoxStreamType.PlainText)
+        If My.Computer.FileSystem.FileExists("Mail_Data2.tds") Then
+            mailData.LoadFile("Mail_Data2.tds", RichTextBoxStreamType.PlainText)
             M1.Text = mailData.Lines(0)
             M2.Text = mailData.Lines(1)
             M3.Text = mailData.Lines(2)
@@ -126,17 +126,17 @@ Public Class Form1
         If M1.Text.Length = 0 Or M2.Text.Length = 0 Or M3.Text.Length = 0 Or M4.Text.Length = 0 Or M5.Text.Length = 0 Or M6.Text.Length = 0 Or M7.Text.Length = 0 Then
             MsgBox("Please check all textbox !!")
         Else
-            If My.Computer.FileSystem.FileExists("Mail_Data.tds") Then
-                My.Computer.FileSystem.DeleteFile("Mail_Data.tds")
-                My.Computer.FileSystem.WriteAllText("Mail_Data.tds", M1.Text + vbCrLf + M2.Text + vbCrLf + M3.Text + vbCrLf + M4.Text + vbCrLf + M5.Text + vbCrLf + M6.Text + vbCrLf + M7.Text, True)
+            If My.Computer.FileSystem.FileExists("Mail_Data2.tds") Then
+                My.Computer.FileSystem.DeleteFile("Mail_Data2.tds")
+                My.Computer.FileSystem.WriteAllText("Mail_Data2.tds", M1.Text + vbCrLf + M2.Text + vbCrLf + M3.Text + vbCrLf + M4.Text + vbCrLf + M5.Text + vbCrLf + M6.Text + vbCrLf + M7.Text, True)
                 mailData.Clear()
-                mailData.LoadFile("Mail_Data.tds", RichTextBoxStreamType.PlainText)
+                mailData.LoadFile("Mail_Data2.tds", RichTextBoxStreamType.PlainText)
                 TimerSaveOK.Enabled = True
                 saveInfo.Visible = True
             Else
-                My.Computer.FileSystem.WriteAllText("Mail_Data.tds", M1.Text + vbCrLf + M2.Text + vbCrLf + M3.Text + vbCrLf + M4.Text + vbCrLf + M5.Text + vbCrLf + M6.Text + vbCrLf + M7.Text, True)
+                My.Computer.FileSystem.WriteAllText("Mail_Data2.tds", M1.Text + vbCrLf + M2.Text + vbCrLf + M3.Text + vbCrLf + M4.Text + vbCrLf + M5.Text + vbCrLf + M6.Text + vbCrLf + M7.Text, True)
                 mailData.Clear()
-                mailData.LoadFile("Mail_Data.tds", RichTextBoxStreamType.PlainText)
+                mailData.LoadFile("Mail_Data2.tds", RichTextBoxStreamType.PlainText)
                 TimerSaveOK.Enabled = True
                 saveInfo.Visible = True
             End If
@@ -149,8 +149,8 @@ Public Class Form1
     End Sub
 
     Private Sub clearMailConfig_Click(sender As Object, e As EventArgs) Handles clearMailConfig.Click
-        If My.Computer.FileSystem.FileExists("Mail_Data.tds") Then
-            My.Computer.FileSystem.DeleteFile("Mail_Data.tds")
+        If My.Computer.FileSystem.FileExists("Mail_Data2.tds") Then
+            My.Computer.FileSystem.DeleteFile("Mail_Data2.tds")
             mailData.Clear()
             M1.Clear()
             M2.Clear()
