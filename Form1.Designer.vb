@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Formularz przesłania metodę dispose, aby wyczyścić listę składników.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'UWAGA: następująca procedura jest wymagana przez Projektanta formularzy systemu Windows
     'Możesz to modyfikować, używając Projektanta formularzy systemu Windows. 
     'Nie należy modyfikować za pomocą edytora kodu.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.StartBF = New System.Windows.Forms.Button()
@@ -38,6 +38,10 @@ Partial Class Form1
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Log = New System.Windows.Forms.RichTextBox()
         Me.Benchmark = New System.Windows.Forms.Button()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Manual = New System.Windows.Forms.TextBox()
+        Me.SendManual = New System.Windows.Forms.Button()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.saveInfo = New System.Windows.Forms.Label()
         Me.clearMailConfig = New System.Windows.Forms.Button()
@@ -64,16 +68,12 @@ Partial Class Form1
         Me.FileL = New System.Windows.Forms.TextBox()
         Me.Datetxt = New System.Windows.Forms.Label()
         Me.manualCheck = New System.Windows.Forms.Button()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.Manual = New System.Windows.Forms.TextBox()
-        Me.SendManual = New System.Windows.Forms.Button()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
-        Me.TabPage2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
         Me.SuspendLayout()
         '
         'StartBF
@@ -225,6 +225,43 @@ Partial Class Form1
         Me.Benchmark.TabIndex = 4
         Me.Benchmark.Text = "Bench"
         Me.Benchmark.UseVisualStyleBackColor = True
+        '
+        'TabPage3
+        '
+        Me.TabPage3.Controls.Add(Me.GroupBox2)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Size = New System.Drawing.Size(597, 244)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Manual"
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Manual)
+        Me.GroupBox2.Controls.Add(Me.SendManual)
+        Me.GroupBox2.Location = New System.Drawing.Point(20, 19)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(553, 77)
+        Me.GroupBox2.TabIndex = 2
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Dos Command"
+        '
+        'Manual
+        '
+        Me.Manual.Location = New System.Drawing.Point(15, 31)
+        Me.Manual.Name = "Manual"
+        Me.Manual.Size = New System.Drawing.Size(423, 22)
+        Me.Manual.TabIndex = 0
+        '
+        'SendManual
+        '
+        Me.SendManual.Location = New System.Drawing.Point(453, 31)
+        Me.SendManual.Name = "SendManual"
+        Me.SendManual.Size = New System.Drawing.Size(75, 23)
+        Me.SendManual.TabIndex = 1
+        Me.SendManual.Text = "Send"
+        Me.SendManual.UseVisualStyleBackColor = True
         '
         'TabPage2
         '
@@ -458,43 +495,6 @@ Partial Class Form1
         Me.manualCheck.UseVisualStyleBackColor = True
         Me.manualCheck.Visible = False
         '
-        'TabPage3
-        '
-        Me.TabPage3.Controls.Add(Me.GroupBox2)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(597, 244)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Manual"
-        Me.TabPage3.UseVisualStyleBackColor = True
-        '
-        'Manual
-        '
-        Me.Manual.Location = New System.Drawing.Point(15, 31)
-        Me.Manual.Name = "Manual"
-        Me.Manual.Size = New System.Drawing.Size(423, 22)
-        Me.Manual.TabIndex = 0
-        '
-        'SendManual
-        '
-        Me.SendManual.Location = New System.Drawing.Point(453, 31)
-        Me.SendManual.Name = "SendManual"
-        Me.SendManual.Size = New System.Drawing.Size(75, 23)
-        Me.SendManual.TabIndex = 1
-        Me.SendManual.Text = "Send"
-        Me.SendManual.UseVisualStyleBackColor = True
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.Manual)
-        Me.GroupBox2.Controls.Add(Me.SendManual)
-        Me.GroupBox2.Location = New System.Drawing.Point(20, 19)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(553, 77)
-        Me.GroupBox2.TabIndex = 2
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Dos Command"
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -517,16 +517,17 @@ Partial Class Form1
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "DESBF v1.03"
+        Me.Text = "DESBF v1.04"
+        Me.TransparencyKey = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(1, Byte), Integer), CType(CType(1, Byte), Integer))
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
-        Me.TabPage2.ResumeLayout(False)
-        Me.TabPage2.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

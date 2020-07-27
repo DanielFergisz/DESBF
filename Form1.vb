@@ -6,7 +6,7 @@ Public Class Form1
     Private Sub StartBF_Click(sender As Object, e As EventArgs) Handles StartBF.Click
         Date_Now.Text = Date.Today
         Dim CommandX As String
-        CommandX = HC.Text + " -m 1500 " + hash.Text + " -a 3 ?1?1?1?1?1?1?1?1 -1 ?l?u?d -2 ?l?u --outfile=DES_Code\" + Date_Now.Text + "_" + FileL.Text + "_Code.txt --session des"
+        CommandX = HC.Text + " -m 1500 " + hash.Text + " -a 3 ?1?1?1?1?1?1?1?1 -1 ?l?u?d -2 ?l?u --outfile=DES_Code\" + Date_Now.Text + "_" + FileL.Text + "_Code.txt --session des --status"
         Dim ksMax As String = "916132832"
         Dim ks2 As String = "458066416"
         Dim ks3 As String = "305377611"
@@ -93,7 +93,7 @@ Public Class Form1
     End Sub
 
     Private Sub hash_TextChanged(sender As Object, e As EventArgs) Handles hash.TextChanged
-        If hash.Text = "desadmin" Then
+        If hash.Text = "$admin" Then
             comSent.Visible = True
             Datetxt.Visible = True
             Date_Now.Visible = True
@@ -103,7 +103,7 @@ Public Class Form1
             manualCheck.Visible = True
             hash.Clear()
         End If
-        If hash.Text = "user" Then
+        If hash.Text = "$user" Then
             comSent.Visible = False
             Datetxt.Visible = False
             Date_Now.Visible = False
