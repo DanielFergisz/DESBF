@@ -17,34 +17,39 @@ Public Class Form1
         Else
             Log.Clear()
             Log.AppendText("Start of calculation..")
-            If xNC1.SelectedItem = "1" Then
-                Process.Start("cmd", "/k " + CommandX)
-                comSent.Text = CommandX
-            End If
+            If RangeCheck.Checked = False Then
+                If xNC1.SelectedItem = "1" Then
+                    Process.Start("cmd", "/k " + CommandX)
+                    comSent.Text = CommandX
+                End If
 
-            If xNC1.SelectedItem = "2" And xNC2.SelectedItem = "1" Then
-                Process.Start("cmd", "/k " + CommandX + " -s 0 -l " + ks2)
-                comSent.Text = CommandX + " -s 0 -l " + ks2
-            End If
-            If xNC1.SelectedItem = "2" And xNC2.SelectedItem = "2" Then
-                Process.Start("cmd", "/k " + CommandX + " -s " + ks2 + " -l " + ksMax)
-                comSent.Text = CommandX + " -s " + ks2 + " -l " + ksMax
-            End If
+                If xNC1.SelectedItem = "2" And xNC2.SelectedItem = "1" Then
+                    Process.Start("cmd", "/k " + CommandX + " -s 0 -l " + ks2)
+                    comSent.Text = CommandX + " -s 0 -l " + ks2
+                End If
+                If xNC1.SelectedItem = "2" And xNC2.SelectedItem = "2" Then
+                    Process.Start("cmd", "/k " + CommandX + " -s " + ks2 + " -l " + ksMax)
+                    comSent.Text = CommandX + " -s " + ks2 + " -l " + ksMax
+                End If
 
-            If xNC1.SelectedItem = "3" And xNC2.SelectedItem = "1" Then
-                Process.Start("cmd", "/k " + CommandX + " -s 0 -l " + ks3)
-                comSent.Text = CommandX + " -s 0 -l " + ks3
-            End If
-            If xNC1.SelectedItem = "3" And xNC2.SelectedItem = "2" Then
-                Process.Start("cmd", "/k " + CommandX + " -s " + ks3 + " -l " + ks31)
-                comSent.Text = CommandX + " -s " + ks3 + " -l " + ks31
-            End If
-            If xNC1.SelectedItem = "3" And xNC2.SelectedItem = "3" Then
-                Process.Start("cmd", "/k " + CommandX + " -s " + ks31 + " -l " + ksMax)
-                comSent.Text = CommandX + " -s " + ks31 + " -l " + ksMax
+                If xNC1.SelectedItem = "3" And xNC2.SelectedItem = "1" Then
+                    Process.Start("cmd", "/k " + CommandX + " -s 0 -l " + ks3)
+                    comSent.Text = CommandX + " -s 0 -l " + ks3
+                End If
+                If xNC1.SelectedItem = "3" And xNC2.SelectedItem = "2" Then
+                    Process.Start("cmd", "/k " + CommandX + " -s " + ks3 + " -l " + ks31)
+                    comSent.Text = CommandX + " -s " + ks3 + " -l " + ks31
+                End If
+                If xNC1.SelectedItem = "3" And xNC2.SelectedItem = "3" Then
+                    Process.Start("cmd", "/k " + CommandX + " -s " + ks31 + " -l " + ksMax)
+                    comSent.Text = CommandX + " -s " + ks31 + " -l " + ksMax
+                End If
+            Else
+                Process.Start("cmd", "/k " + CommandX + " -s " + BeginMask.Text + " -l " + EndMask.Text)
+                comSent.Text = CommandX + " -s " + BeginMask.Text + " -l " + EndMask.Text
             End If
         End If
-        If M1.Text.Length = 0 Or M2.Text.Length = 0 Or M3.Text.Length = 0 Or M4.Text.Length = 0 Or M5.Text.Length = 0 Or M6.Text.Length = 0 Or M7.Text.Length = 0 Then
+            If M1.Text.Length = 0 Or M2.Text.Length = 0 Or M3.Text.Length = 0 Or M4.Text.Length = 0 Or M5.Text.Length = 0 Or M6.Text.Length = 0 Or M7.Text.Length = 0 Then
         Else
             fileCodCheck.Enabled = True
             manualCheck.BackColor = Color.Yellow
@@ -55,6 +60,8 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         HC.SelectedItem = "hashcat"
         xNC1.SelectedItem = "1"
+        StartR.SelectedItem = "0"
+        StopR.SelectedItem = "100"
         If Directory.Exists("DES_Code") Then
         Else
             Directory.CreateDirectory("DES_Code")
@@ -101,6 +108,8 @@ Public Class Form1
             FileL.Visible = True
             mailData.Visible = True
             manualCheck.Visible = True
+            BeginMask.Visible = True
+            EndMask.Visible = True
             hash.Clear()
         End If
         If hash.Text = "$user" Then
@@ -110,6 +119,9 @@ Public Class Form1
             DesCode.Visible = False
             FileL.Visible = False
             mailData.Visible = False
+            manualCheck.Visible = False
+            BeginMask.Visible = False
+            EndMask.Visible = False
             hash.Clear()
         End If
     End Sub
@@ -228,5 +240,122 @@ Public Class Form1
 
     Private Sub SendManual_Click(sender As Object, e As EventArgs) Handles SendManual.Click
         Process.Start("cmd", "/k " + Manual.Text)
+    End Sub
+
+    Private Sub RangeCheck_CheckedChanged(sender As Object, e As EventArgs) Handles RangeCheck.CheckedChanged
+        If RangeCheck.Checked = True Then
+            StartR.Enabled = True
+            StopR.Enabled = True
+            xNC1.Enabled = False
+            xNC2.Enabled = False
+        Else
+            StartR.Enabled = False
+            StopR.Enabled = False
+            xNC1.Enabled = True
+            xNC2.Enabled = True
+        End If
+    End Sub
+
+    Private Sub StartR_SelectedIndexChanged(sender As Object, e As EventArgs) Handles StartR.SelectedIndexChanged
+        If StartR.SelectedItem = "0" Then
+            StopR.Items.Clear()
+            StopR.Items.Add("10")
+            StopR.Items.Add("20")
+            StopR.Items.Add("30")
+            StopR.Items.Add("40")
+            StopR.Items.Add("50")
+            StopR.Items.Add("60")
+            StopR.Items.Add("70")
+            StopR.Items.Add("80")
+            StopR.Items.Add("90")
+            StopR.Items.Add("100")
+            StopR.SelectedItem = "10"
+        End If
+        If StartR.SelectedItem = "10" Then
+            StopR.Items.Clear()
+            StopR.Items.Add("20")
+            StopR.Items.Add("30")
+            StopR.Items.Add("40")
+            StopR.Items.Add("50")
+            StopR.Items.Add("60")
+            StopR.Items.Add("70")
+            StopR.Items.Add("80")
+            StopR.Items.Add("90")
+            StopR.Items.Add("100")
+            StopR.SelectedItem = "20"
+        End If
+        If StartR.SelectedItem = "20" Then
+            StopR.Items.Clear()
+            StopR.Items.Add("30")
+            StopR.Items.Add("40")
+            StopR.Items.Add("50")
+            StopR.Items.Add("60")
+            StopR.Items.Add("70")
+            StopR.Items.Add("80")
+            StopR.Items.Add("90")
+            StopR.Items.Add("100")
+            StopR.SelectedItem = "30"
+        End If
+        If StartR.SelectedItem = "30" Then
+            StopR.Items.Clear()
+            StopR.Items.Add("40")
+            StopR.Items.Add("50")
+            StopR.Items.Add("60")
+            StopR.Items.Add("70")
+            StopR.Items.Add("80")
+            StopR.Items.Add("90")
+            StopR.Items.Add("100")
+            StopR.SelectedItem = "40"
+        End If
+        If StartR.SelectedItem = "40" Then
+            StopR.Items.Clear()
+            StopR.Items.Add("50")
+            StopR.Items.Add("60")
+            StopR.Items.Add("70")
+            StopR.Items.Add("80")
+            StopR.Items.Add("90")
+            StopR.Items.Add("100")
+            StopR.SelectedItem = "50"
+        End If
+        If StartR.SelectedItem = "50" Then
+            StopR.Items.Clear()
+            StopR.Items.Add("60")
+            StopR.Items.Add("70")
+            StopR.Items.Add("80")
+            StopR.Items.Add("90")
+            StopR.Items.Add("100")
+            StopR.SelectedItem = "60"
+        End If
+        If StartR.SelectedItem = "60" Then
+            StopR.Items.Clear()
+            StopR.Items.Add("70")
+            StopR.Items.Add("80")
+            StopR.Items.Add("90")
+            StopR.Items.Add("100")
+            StopR.SelectedItem = "70"
+        End If
+        If StartR.SelectedItem = "70" Then
+            StopR.Items.Clear()
+            StopR.Items.Add("80")
+            StopR.Items.Add("90")
+            StopR.Items.Add("100")
+            StopR.SelectedItem = "80"
+        End If
+        If StartR.SelectedItem = "80" Then
+            StopR.Items.Clear()
+            StopR.Items.Add("90")
+            StopR.Items.Add("100")
+            StopR.SelectedItem = "90"
+        End If
+        If StartR.SelectedItem = "90" Then
+            StopR.Items.Clear()
+            StopR.Items.Add("100")
+            StopR.SelectedItem = "100"
+        End If
+        BeginMask.Text = StartR.Text * 10000000000
+    End Sub
+
+    Private Sub StopR_SelectedIndexChanged(sender As Object, e As EventArgs) Handles StopR.SelectedIndexChanged
+        EndMask.Text = StopR.Text * 10000000000
     End Sub
 End Class
