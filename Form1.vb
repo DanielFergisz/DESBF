@@ -174,44 +174,44 @@ Public Class Form1
         Else
         End If
     End Sub
+    Public Function SendMessage_engine()
+        Try
+            Dim mailfrom As New MailAddress(M1.Text, "DESBF") ' adres mail do wysyłki + nazwa
+            Dim mailto As New MailAddress(M2.Text, "BM") ' adres docelowy + nazwa
+            Dim message As New MailMessage(mailfrom, mailto)
+            Dim smtp As New SmtpClient(M3.Text) 'serwer smtp
+            Dim zaloncznik As String
+            zaloncznik = "DES_Code\" + Date_Now.Text + "_" + FileL.Text + "_Code.txt" 'nazwa pliku
+            If File.Exists(zaloncznik) Then
+                Dim data As New Attachment(zaloncznik)
+                message.Attachments.Add(data)
+            End If
 
+            message.Subject = M6.Text 'temat wiadomości
+
+
+            message.BodyEncoding = System.Text.Encoding.UTF8
+            message.Body = M7.Text 'tekst wiadomości
+
+            smtp.Credentials = New NetworkCredential(M4.Text, M5.Text) 'login i hasło
+
+            smtp.DeliveryMethod = SmtpDeliveryMethod.Network
+
+            smtp.Send(message)
+
+            Log.AppendText(Environment.NewLine + "Done. File has been sent.")
+            Log.AppendText(Environment.NewLine)
+
+
+
+        Catch ex As SmtpException
+            Log.AppendText(Environment.NewLine + ex.Message)
+        End Try
+    End Function
     Private Sub fileCodCheck_Tick(sender As Object, e As EventArgs) Handles fileCodCheck.Tick
         If My.Computer.FileSystem.FileExists("DES_Code\" + Date_Now.Text + "_" + FileL.Text + "_Code.txt") Then
             fileCodCheck.Enabled = False
-
-            '***********************************************************************************************************************
-            Try
-                Dim mailfrom As New MailAddress(M1.Text, "DESBF") ' adres mail do wysyłki + nazwa
-                Dim mailto As New MailAddress(M2.Text, "BM") ' adres docelowy + nazwa
-                Dim message As New MailMessage(mailfrom, mailto)
-                Dim smtp As New SmtpClient(M3.Text) 'serwer smtp
-                Dim zaloncznik As String
-                zaloncznik = "DES_Code\" + Date_Now.Text + "_" + FileL.Text + "_Code.txt" 'nazwa pliku
-                If File.Exists(zaloncznik) Then
-                    Dim data As New Attachment(zaloncznik)
-                    message.Attachments.Add(data)
-                End If
-
-                message.Subject = M6.Text 'temat wiadomości
-
-
-                message.BodyEncoding = System.Text.Encoding.UTF8
-                message.Body = M7.Text 'tekst wiadomości
-
-                smtp.Credentials = New NetworkCredential(M4.Text, M5.Text) 'login i hasło
-
-                smtp.DeliveryMethod = SmtpDeliveryMethod.Network
-
-                smtp.Send(message)
-
-                Log.AppendText(Environment.NewLine + "Done. File has been sent.")
-                Log.AppendText(Environment.NewLine)
-
-
-
-            Catch ex As SmtpException
-                Log.AppendText(Environment.NewLine + ex.Message)
-            End Try
+            SendMessage_engine() ' sending message
             DesCode.LoadFile("DES_Code\" + Date_Now.Text + "_" + FileL.Text + "_Code.txt", RichTextBoxStreamType.PlainText)
             Log.AppendText(Environment.NewLine + "DES Code: ")
             Log.SelectionColor = Color.DarkBlue
@@ -357,5 +357,9 @@ Public Class Form1
 
     Private Sub StopR_SelectedIndexChanged(sender As Object, e As EventArgs) Handles StopR.SelectedIndexChanged
         EndMask.Text = StopR.Text * 10000000000
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        SendMessage_engine()
     End Sub
 End Class
